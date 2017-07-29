@@ -7,6 +7,7 @@ class LogisticRegression(object):
     def __init__(self):
         self.w = None
 
+
     def loss(self, X_batch, y_batch):
         """
         Compute the loss function and its derivative.
@@ -26,13 +27,21 @@ class LogisticRegression(object):
         # TODO:                                                                 #
         # calculate the loss and the derivative                                 #
         #########################################################################
-        pass
+        g = X_batch.dot(self.w.T)
+        h = 1.0 / (1 + np.exp(-g))
+        num_batch = y_batch.size
+        myLoss = (1.0 / num_batch) * np.sum(-y_batch.T.dot(np.log(h)) - (1 - y_batch).T.dot(np.log(1 - h) )  )
+
+        scores = X_batch.dot(self.w.T) - y_batch
+        myGrad = (1.0 / num_batch) * (X_batch.T).dot(scores)
+
+        return myLoss, myGrad
         #########################################################################
         #                       END OF YOUR CODE                                #
         #########################################################################
 
-    def train(self, X, y, learning_rate=1e-3, num_iters=100,
-            batch_size=200, verbose=True):
+    def train(self, X, y, learning_rate = 1e-3, num_iters = 100,
+            batch_size = 200, verbose = True):
 
         """
         Train this linear classifier using stochastic gradient descent.
@@ -70,7 +79,8 @@ class LogisticRegression(object):
             # Hint: Use np.random.choice to generate indices. Sampling with         #
             # replacement is faster than sampling without replacement.              #
             #########################################################################
-            pass
+            X_batch = X
+            y_batch = y
             #########################################################################
             #                       END OF YOUR CODE                                #
             #########################################################################
@@ -84,7 +94,7 @@ class LogisticRegression(object):
             # TODO:                                                                 #
             # Update the weights using the gradient and the learning rate.          #
             #########################################################################
-            pass
+            self.w += -learning_rate * grad
             #########################################################################
             #                       END OF YOUR CODE                                #
             #########################################################################
@@ -112,14 +122,23 @@ class LogisticRegression(object):
         # TODO:                                                                   #
         # Implement this method. Store the predicted labels in y_pred.            #
         ###########################################################################
-        pass
+        y_pred = X.dot(self.w.T) 
+
+        for pred_enum in y_pred:
+            h = 1.0 / (1 + np.exp(-pred_enum))
+            if h > 0.5:
+                y_pred = 1
+            else:
+                y_pred = 0
+
+        
         ###########################################################################
         #                           END OF YOUR CODE                              #
         ###########################################################################
         return y_pred
 
-    def one_vs_all(self, X, y, learning_rate=1e-3, num_iters=100,
-            batch_size=200, verbose = True):
+    def one_vs_all(self, X, y, learning_rate = 1e-3, num_iters = 100,
+            batch_size = 200, verbose = True):
                 """
         Train this linear classifier using stochastic gradient descent.
         Inputs:
