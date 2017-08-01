@@ -45,12 +45,13 @@
 - 作业：
     - MNIST 手写数字识别、CIFAR-10 图像分类
     - 采用第一周的特征 + 第二周的方法（多种组合，对比结果）
+    - 井字棋胜负判断
 
-#### 第三周：经典算法
+#### [第三周：经典算法](Week_3/README.md) (8 月 1 日 - 8 月 5 日）
 - 支撑向量机 
     - 推荐博文：SVM《理解SVM的三层境界》
 - 图像特征：, SIFT, Visual BoW,
-- 作业：收入预测、CIFAR-10 图像分类
+- 作业：井字棋胜负判断
 
 #### 第四周：无监督特征学习（Unsupervised Feature Learning, Manifold Learning）
 - Andrew Ng 论文
@@ -104,7 +105,7 @@
 --- | --- | --- | --- | ---
  [俞俊](http://camalab.hdu.edu.cn/people/jun_yu/index.html) | [高飞](http://camalab.hdu.edu.cn/people/fei_gao/index.html) | [谭敏](http://camalab.hdu.edu.cn/people/min_tan/index.html) | [余宙](http://camalab.hdu.edu.cn/people/zhou_yu/index.html)  | 朱素果 
  **助教** |  |  |  |  |  
- [罗宇矗](http://www.luoyuchu.com/) | [钱哲琦](https://github.com/QZQTechMonster) | [朱朝阳](http://chaoyangzhu.com/) | 项晨钞 | 施圣洁 
+ [罗宇矗](http://www.luoyuchu.com/) | [钱哲琦](https://qzqtechmonster.github.io/) | [朱朝阳](http://chaoyangzhu.com/) | 项晨钞 | 施圣洁 
  张海超 | 孟宣彤 | 郑光剑 | 吴炜晨 |  
 
 
