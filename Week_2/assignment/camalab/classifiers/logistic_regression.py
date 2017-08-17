@@ -30,7 +30,7 @@ class LogisticRegression(object):
         g = X_batch.dot(self.w.T)
         h = 1.0 / (1 + np.exp(-g))
         num_batch = y_batch.size
-        myLoss = (1.0 / num_batch) * np.sum(-y_batch.T.dot(np.log(h)) - (1 - y_batch).T.dot(np.log(1 - h) )  )
+        myLoss = (1.0 / num_batch) * np.sum(-y_batch.T.dot(np.log(h)) - (1 - y_batch).T.dot(np.log(1 - h) ) )
 
         scores = X_batch.dot(self.w.T) - y_batch
         myGrad = (1.0 / num_batch) * (X_batch.T).dot(scores)
